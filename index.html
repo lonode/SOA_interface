@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="fr">
+<head>
+
+  <script type="text/javascript" src="data/allRooms.json"></script>
+
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>GEI Management</title>
+	<link rel="stylesheet" href="style.css">
+	<script src="js/jquery-3.4.1.min.js"></script>
+  <script src="https://unpkg.com/popper.js"></script>
+	<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  
+</head>
+<header>
+  <h1>
+    <center>
+      GEI Management Center
+    </center>
+  </h1>
+</header>
+<body>
+	<br/>
+<center>
+	<button class="btn btn-primary" onclick="call911()">Call 911</button>
+	<button class="btn btn-primary" onclick="update()">Update</button>
+	<button class="btn btn-primary" onclick="printGraph()">Print graph</button>
+		<br/><br/>
+	<button class="btn btn-primary" onclick="disableCB()">Disable CB</button>
+	<button class="btn btn-primary" onclick="unbunkerisation()">Unbunkerisation</button>
+	<button class="btn btn-primary" onclick="testsms()">Test SMS</button>
+</center>
+
+<script>
+
+  // popovers initialization - on click
+    $('[data-toggle="popover-click"]').popover({
+      html: true,
+      trigger: 'click',
+      placement: 'bottom',
+      content: function () { return '<img src="' + $(this).data('img') + '" />'; }
+    });
+  </script>
+
+<br/><br/>
+<div class="table-responsive">
+  <table class="table" id="tab">
+
+    <tr>
+      <td scope="col">#</td>
+      <td scope="col">Electromagnety</td>
+      <td scope="col">Toxicity</td>
+      <td scope="col">Radioactivity</td>
+      <td scope="col">Window state</td>
+      <td scope="col"></td>
+      <td scope="col">Door state</td>
+      <td scope="col">Image</td>
+    </tr>
+		<!--
+		<tr class="rows">
+      <td>1</td>
+      <td>59</td>
+      <td>22</td>
+      <td>74</td>
+      <td>Open</td>
+      <td>
+				<button id="b1" class="btn btn-primary" onclick="changeDoor(this)", name="d0">Change</button>
+			</td>
+      <td>Open</td>
+    </tr>
+		<tr class="rows">
+      <td>2</td>
+      <td>72</td>
+      <td>14</td>
+      <td>60</td>
+      <td>Open</td>
+			<td>
+				<button class="btn btn-primary" onclick="changeDoor(this)", name="d1">Change</button>
+			</td>
+      <td>Open</td>
+    </tr>
+		<tr class="rows">
+      <td>3</td>
+      <td>10</td>
+      <td>98</td>
+      <td>5</td>
+      <td>Open</td>
+			<td>
+				<button class="btn btn-primary" onclick="changeDoor(this)", name="d2">Change</button>
+			</td>
+      <td>Open</td>
+    </tr>
+		<tr class="rows">
+      <td>4</td>
+      <td>65</td>
+      <td>20</td>
+      <td>41</td>
+      <td>Open</td>
+			<td>
+				<button class="btn btn-primary" onclick="changeDoor(this)", name="d3">Change</button>
+			</td>
+      <td>Open</td>
+    </tr>
+		<tr class="rows">
+      <td>5</td>
+      <td>34</td>
+      <td>89</td>
+      <td>23</td>
+      <td>Open</td>
+			<td>
+				<button class="btn btn-primary" onclick="changeDoor(this)", name="d4">Change</button>
+			</td>
+      <td>Open</td>
+    </tr>
+	-->
+  </table>
+</div>
+	<center>
+  <div id="electro"></div>
+	<br/>
+	<div id="tox"></div>
+	<br/>
+	<div id="radio"></div>
+</center>
+
+</body>
+<script src="js/script.js"></script>
+
+</html>
